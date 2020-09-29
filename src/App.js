@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from '@/Pages/Home'
 import Header from '@/Components/Header'
 import Lessons from '@/Pages/Lessons'
@@ -8,17 +8,15 @@ import './App.css';
 
 function App() {
     return (
-        <div className="App">
+        <Router>
             <Header />
             <Switch>
-                <Route path="/">
-                    <Home />
-                </Route>
-                <Route path="/lesson/:id">
-                    <Lessons />
-                </Route>
+                <Route exact path="/" component={Home} />
+                {/*<Route path="/lesson/:id">*/}
+                {/*    <Lessons />*/}
+                {/*</Route>*/}
             </Switch>
-        </div>
+        </Router>
     );
 }
 
